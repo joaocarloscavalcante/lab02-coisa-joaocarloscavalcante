@@ -1,3 +1,10 @@
+/**
+ * Representação da quantidade de horas online dedicadas pelo estudante aos afazeres de uma disciplina remota.
+ * O estudante precisa atingir a meta de tempo online definida para a disciplina. Caso não exista uma meta definida
+ * para a disciplina, o esudante deve cumprir a meta padrão de 120 horas.
+ *
+ * @author João Carlos Cavalcante de Almeida Padilha
+ */
 public class RegistroTempoOnline {
     private String nomeDisciplina;
     private int tempoOnline;

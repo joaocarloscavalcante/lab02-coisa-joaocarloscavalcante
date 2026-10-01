@@ -1,7 +1,8 @@
 /**
- * O CoISA - Controle Institucional da Situação Acadêmica
+ * O CoISA - Controle Institucional da Situação Acadêmica - é um sistema que
+ * permite aos estudantes a possibilidade de organizar e controlar suas vidas acadêmicas.
  *
- * @author João Carlos Cavalcante de Almeida Padilha - 20260004401
+ * @author João Carlos Cavalcante de Almeida Padilha
  */
 public class Coisa {
     public static void main(String[] args) {

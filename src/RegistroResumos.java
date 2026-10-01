@@ -1,3 +1,11 @@
+/**
+ * Representação de um registro (de quantidade máxima limitada) de resumos do estudante.
+ * O registro guarda o tema e o conteúdo de cada resumo, não sendo possível guardar mais de um resumo por tema.
+ * Quando é adicionado mais um resumo ao registro já completo, o primeiro resumo guardado é substituído pelo novo, e
+ * assim sucessivamente.
+ *
+ * @author João Carlos Cavalcante de Almeida Padilha
+ */
 public class RegistroResumos {
     private String[] resumos;
     private String[] temas;
@@ -52,7 +60,7 @@ public class RegistroResumos {
     }
 
     public String imprimeResumos() {
-        String resumos = "-" + this.quantidadeAtual + " resumo(s) cadastrado(s)\n- ";
+        String resumos = "- " + this.quantidadeAtual + " resumo(s) cadastrado(s)\n- ";
         for(int i = 0; i < quantidadeAtual; i++) {
             if(i == this.quantidadeAtual - 1){
                 resumos += this.temas[i];
