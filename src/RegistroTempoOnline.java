@@ -2,10 +2,12 @@ public class RegistroTempoOnline {
     private String nomeDisciplina;
     private int tempoOnline;
     private int metaTempoOnline;
+    private final int META_PADRAO = 120;
 
     // Construtor 1
     public RegistroTempoOnline(String nomeDisciplina) {
         this.nomeDisciplina = nomeDisciplina;
+        this.metaTempoOnline = META_PADRAO;
     }
 
     // Construtor 2

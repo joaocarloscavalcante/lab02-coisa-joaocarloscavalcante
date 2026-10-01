@@ -10,11 +10,11 @@ public class Disciplina {
 
     // Demais Métodos
     public void cadastraHoras(int horas) {
-        this.horasEstudo += horasEstudo;
+        this.horasEstudo += horas;
     }
 
     public void cadastraNota(int nota, double valorNota) {
-        this.notas[nota] = valorNota;
+        this.notas[nota - 1] = valorNota;
     }
 
     public double media() {
@@ -26,18 +26,15 @@ public class Disciplina {
     }
 
     public boolean aprovado() {
-        if(this.media() >= 7.0) {
-            return true;
-        }
-        return false;
+        return this.media() >= 7.0;
     }
 
     public String notasToString() {
-        return "[" + this.notas[0] + ", " +
+        return "[" + this.notas[0] + ", " + this.notas[1] + ", " + this.notas[2] + ", " + this.notas[3] + "]";
     }
 
     @Override
     public String toString() {
-        return this.nomeDisciplina + " " + this.horasEstudo + " " + this.media() + " " +
+        return this.nomeDisciplina + " " + this.horasEstudo + " " + this.media() + " " + this.notasToString();
     }
 }

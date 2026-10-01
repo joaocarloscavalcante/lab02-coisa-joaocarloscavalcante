@@ -1,3 +1,8 @@
+/**
+ * O CoISA - Controle Institucional da Situação Acadêmica
+ *
+ * @author João Carlos Cavalcante de Almeida Padilha - 20260004401
+ */
 public class Coisa {
     public static void main(String[] args) {
         registrarDescanso();
