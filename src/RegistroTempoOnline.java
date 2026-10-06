@@ -5,15 +5,16 @@
  *
  * @author João Carlos Cavalcante de Almeida Padilha
  */
+
 public class RegistroTempoOnline {
     /** Nome da disciplina monitorada. */
-    private String nomeDisciplina;
+    private final String nomeDisciplina;
     /** Horas de tempo online acumuladas na disciplina. */
     private int tempoOnline;
     /** Meta em horas de tempo online esperada para a disciplina. */
-    private int metaTempoOnline;
+    private final int metaTempoOnline;
     /** Meta em horas de tempo online esperada por padrão. */
-    private final int META_PADRAO = 120;
+    private static final int META_PADRAO = 120;
 
     /**
      * Constrói o registro de tempo online para uma disciplina assumindo a meta padrão de 120 horas.

@@ -5,6 +5,7 @@
  *
  * @author João Carlos Cavalcante de Almeida Padilha
  */
+
 public class Descanso {
     /** Horas acumuladas de descanso do estudante. */
     private int horasDescanso;

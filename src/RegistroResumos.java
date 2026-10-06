@@ -7,19 +7,9 @@
  * @author João Carlos Cavalcante de Almeida Padilha
  */
 
-/*
-* codigo muito bem comentado, tudo definido de forma explicita e de fácil entendimento, gostei da forma do uso de reescrita no array de resumos,
-* me foi curioso e talvez a parte de um pouco mais de cuidado na compreensão, de modo geral muito bem programado.
-*
-* Apenas criaria outra classe para facilitar ainda mais a comprensão e modularização do programa, com uma classe destinada a resumos.
-*
-* @comment @mateus.batinga
- */
 public class RegistroResumos {
-    /** Array que armazena os textos dos resumos. */
-    private String[] resumos;
-    /** Array que armazena os temas dos resumos. */
-    private String[] temas;
+    //** Array que armazena os resumos*/
+    private final Resumo[] resumos;
     /** Índice circular que indica a posição de inserção do próximo resumo. */
     private int indiceAtual;
     /** Quantidade atual de resumos cadastrados. */
@@ -34,8 +24,7 @@ public class RegistroResumos {
      */
     public RegistroResumos(int numeroDeResumos) {
         this.quantidadeMaxima = numeroDeResumos;
-        this.resumos = new String[numeroDeResumos];
-        this.temas = new String[numeroDeResumos];
+        this.resumos = new Resumo[numeroDeResumos];
         this.indiceAtual = 0;
         this.quantidadeAtual = 0;
     }
@@ -48,7 +37,7 @@ public class RegistroResumos {
      */
     public boolean temResumo(String tema) {
         for(int i = 0; i < this.quantidadeAtual; i++) {
-            if(this.temas[i].equals(tema)) {
+            if(this.resumos[i].getTema().equals(tema)) {
                 return true;
             }
         }
@@ -60,18 +49,17 @@ public class RegistroResumos {
      * Quando a capacidade máxima é atingida, o resumo mais antigo é substituído sequencialmente.
      *
      * @param tema o tema ou assunto do resumo
-     * @param resumo o conteúdo do resumo
+     * @param conteudo o conteúdo do resumo
      */
-    public void adiciona(String tema, String resumo) {
+    public void adiciona(String tema, String conteudo) {
         for(int i = 0; i < quantidadeAtual; i++) {
-            if(this.temas[i].equals(tema)) {
-                this.resumos[i] = resumo;
+            if(this.resumos[i].getTema().equals(tema)) {
+                this.resumos[i].setConteudo(conteudo);
                 return;
             }
         }
 
-        this.temas[indiceAtual] = tema;
-        this.resumos[indiceAtual] = resumo;
+        this.resumos[indiceAtual] = new Resumo(tema, conteudo);
 
         this.indiceAtual = (this.indiceAtual + 1) % this.quantidadeMaxima;
 
@@ -87,11 +75,11 @@ public class RegistroResumos {
      * @return um array contendo as representações dos resumos cadastrados
      */
     public String[] pegaResumos() {
-        String[] resumos = new String[quantidadeAtual];
+        String[] resumosCadastrados = new String[quantidadeAtual];
         for(int i = 0; i < quantidadeAtual; i++) {
-            resumos[i] = this.temas[i] + ": " + this.resumos[i];
+            resumosCadastrados[i] = this.resumos[i].toString();
         }
-        return resumos;
+        return resumosCadastrados;
     }
 
     /**
@@ -101,16 +89,16 @@ public class RegistroResumos {
      * @return a representação em String com o resumo de todos os resumos
      */
     public StringBuilder imprimeResumos() {
-        StringBuilder resumos = new StringBuilder("- " + this.quantidadeAtual + " resumo(s) cadastrado(s)\n- ");
+        StringBuilder impressaoResumos = new StringBuilder("- " + this.quantidadeAtual + " resumo(s) cadastrado(s)\n- ");
         for(int i = 0; i < quantidadeAtual; i++) {
             if(i == this.quantidadeAtual - 1){
-                resumos.append(this.temas[i]);
+                impressaoResumos.append(this.resumos[i].getTema());
             } else {
-                resumos.append(this.temas[i]);
-                resumos.append(" | ");
+                impressaoResumos.append(this.resumos[i].getTema());
+                impressaoResumos.append(" | ");
             }
         }
-        return resumos;
+        return impressaoResumos;
     }
 
     /**

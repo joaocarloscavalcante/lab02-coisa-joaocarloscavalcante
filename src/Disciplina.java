@@ -7,15 +7,16 @@
  *
  * @author João Carlos Cavalcante de Almeida Padilha
  */
+
 public class Disciplina {
     /** Nome da discipliina **/
-    private String nomeDisciplina;
+    private final String nomeDisciplina;
     /** Horas de estudo acumuladas na disciplina. */
     private int horasEstudo;
     /** Array com as 4 notas do aluno na disciplina. */
-    private double[] notas;
+    private final double[] notas;
     //** Quantidade padrão de notas por disciplina. */
-    private final int QTD_NOTAS = 4;
+    private static final int QTD_NOTAS = 4;
 
     /**
      * Constrói uma disciplina a partir do seu nome.
