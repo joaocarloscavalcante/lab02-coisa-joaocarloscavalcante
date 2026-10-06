@@ -51,10 +51,7 @@ public class RegistroTempoOnline {
      * @return true se a meta foi atingida, false caso contrário
      */
     public boolean atingiuMetaTempoOnline() {
-        if(tempoOnline >= metaTempoOnline) {
-            return true;
-        }
-        return false;
+        return (tempoOnline >= metaTempoOnline);
     }
 
     /**

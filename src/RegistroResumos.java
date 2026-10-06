@@ -6,6 +6,15 @@
  *
  * @author João Carlos Cavalcante de Almeida Padilha
  */
+
+/*
+* codigo muito bem comentado, tudo definido de forma explicita e de fácil entendimento, gostei da forma do uso de reescrita no array de resumos,
+* me foi curioso e talvez a parte de um pouco mais de cuidado na compreensão, de modo geral muito bem programado.
+*
+* Apenas criaria outra classe para facilitar ainda mais a comprensão e modularização do programa, com uma classe destinada a resumos.
+*
+* @comment @mateus.batinga
+ */
 public class RegistroResumos {
     /** Array que armazena os textos dos resumos. */
     private String[] resumos;
@@ -91,13 +100,14 @@ public class RegistroResumos {
      *
      * @return a representação em String com o resumo de todos os resumos
      */
-    public String imprimeResumos() {
-        String resumos = "- " + this.quantidadeAtual + " resumo(s) cadastrado(s)\n- ";
+    public StringBuilder imprimeResumos() {
+        StringBuilder resumos = new StringBuilder("- " + this.quantidadeAtual + " resumo(s) cadastrado(s)\n- ");
         for(int i = 0; i < quantidadeAtual; i++) {
             if(i == this.quantidadeAtual - 1){
-                resumos += this.temas[i];
+                resumos.append(this.temas[i]);
             } else {
-                resumos += this.temas[i] + " | ";
+                resumos.append(this.temas[i]);
+                resumos.append(" | ");
             }
         }
         return resumos;
