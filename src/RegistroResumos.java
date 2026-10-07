@@ -88,14 +88,13 @@ public class RegistroResumos {
      *
      * @return a representação em String com o resumo de todos os resumos
      */
-    public StringBuilder imprimeResumos() {
-        StringBuilder impressaoResumos = new StringBuilder("- " + this.quantidadeAtual + " resumo(s) cadastrado(s)\n- ");
+    public String imprimeResumos() {
+        String impressaoResumos = "- " + this.quantidadeAtual + " resumo(s) cadastrado(s)\n- ";
         for(int i = 0; i < quantidadeAtual; i++) {
             if(i == this.quantidadeAtual - 1){
-                impressaoResumos.append(this.resumos[i].getTema());
+                impressaoResumos += this.resumos[i].getTema();
             } else {
-                impressaoResumos.append(this.resumos[i].getTema());
-                impressaoResumos.append(" | ");
+                impressaoResumos += this.resumos[i].getTema() + " | ";
             }
         }
         return impressaoResumos;
