@@ -13,8 +13,10 @@ public class Disciplina {
     private final String nomeDisciplina;
     /** Horas de estudo acumuladas na disciplina. */
     private int horasEstudo;
-    /** Array com as 4 notas do aluno na disciplina. */
+    /** Array com as notas do aluno na disciplina. */
     private final double[] notas;
+    /** Array com os pesos de cada nota da disciplina. */
+    private double[] pesos;
     //** Quantidade padrão de notas por disciplina. */
     private static final int QTD_NOTAS = 4;
 
@@ -28,6 +30,19 @@ public class Disciplina {
         this.nomeDisciplina = nomeDisciplina;
         this.horasEstudo = 0;
         this.notas = new double[QTD_NOTAS];
+    }
+
+    public Disciplina(String nomeDisciplina, int qtdNotas) {
+        this.nomeDisciplina = nomeDisciplina;
+        this.horasEstudo = 0;
+        this.notas = new double[qtdNotas];
+    }
+
+    public Disciplina(String nomeDisciplina, int qtdNotas, double[] pesos) {
+        this.nomeDisciplina = nomeDisciplina;
+        this.horasEstudo = 0;
+        this.notas = new double[qtdNotas];
+        this.pesos = pesos;
     }
 
     /**
@@ -50,16 +65,28 @@ public class Disciplina {
     }
 
     /**
-     * Calcula e retorna a média aritmética simples das 4 notas do aluno.
+     * Calcula e retorna:
+     *  - a média aritmética simples das notas, quando não há um array de pesos.
+     *  - a média ponderada das notas, quando há um array de pesos;
      *
-     * @return a média das notas da disciplina
+     * @return a média (aritmética ou ponderada) das notas da disciplina
      */
     public double media() {
+        int qtdNotas = notas.length;
+        if(this.pesos != null) {
+            double somaPesos = 0.0;
+            double somaPonderada = 0.0;
+            for(int i = 0; i < qtdNotas; i++) {
+                somaPesos += this.pesos[i];
+                somaPonderada += (this.notas[i] * this.pesos[i]);
+            }
+            return (somaPonderada / somaPesos);
+        }
         double soma = 0.0;
-        for(int i = 0; i < 4; i++) {
+        for(int i = 0; i < qtdNotas; i++) {
             soma += this.notas[i];
         }
-        return (soma / 4);
+        return (soma / qtdNotas);
     }
 
     /**

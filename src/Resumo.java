@@ -41,6 +41,16 @@ public class Resumo {
     }
 
     /**
+     * Verifica se o conteúdo do resumo possui uma String, que é passada como parâmetro.
+     *
+     * @param chave a String a ser buscada
+     * @return true se a String está contida, false se não está contida
+     */
+    public boolean temChave(String chave) {
+        return this.conteudo.contains(chave);
+    }
+
+    /**
      * Retorna a representação textual do resumo no padrão "Tema: Conteúdo".
      *
      * @return a representação em String do resumo

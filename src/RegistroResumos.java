@@ -109,4 +109,36 @@ public class RegistroResumos {
         return this.quantidadeAtual;
     }
 
+    /** Retorna todos os temas dos quais o conteúdo possui a palavra buscada.
+     *
+     * @param chaveDeBusca a palavra a ser buscada nos conteúdos dos resumos.
+     * @return o array com todos os temas que possuem a palavra buscada em seu conteúdo.
+     */
+    public String[] busca(String chaveDeBusca) {
+        String[] temas;
+        int qtdTemas = 0;
+        for(int i = 0; i < quantidadeAtual; i++) {
+            if(this.resumos[i].temChave(chaveDeBusca)) {
+                qtdTemas++;
+            }
+        }
+
+        temas = new String[qtdTemas];
+        int iTemas = 0;
+
+        for(int i = 0; i < quantidadeAtual; i++) {
+            if(this.resumos[i].temChave(chaveDeBusca)) {
+                temas[iTemas] = this.resumos[i].getTema();
+                iTemas++;
+            }
+        }
+        return temas;
+    }
+
+    @Override
+    public String toString() {
+        String s = "";
+
+    }
+
 }
