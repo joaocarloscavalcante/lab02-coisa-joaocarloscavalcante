@@ -1,6 +1,8 @@
+package lab2;
+
 /**
  * Representação de um registro (de quantidade máxima limitada) de resumos do estudante.
- * O registro guarda o tema e o conteúdo de cada resumo, não sendo possível guardar mais de um resumo por tema.
+ * O registro guarda objetos da classe Resumo, não sendo possível guardar mais de um resumo por tema.
  * Quando é adicionado mais um resumo ao registro já completo, o primeiro resumo guardado é substituído pelo novo, e
  * assim sucessivamente.
  *
@@ -112,7 +114,7 @@ public class RegistroResumos {
     /** Retorna todos os temas dos quais o conteúdo possui a palavra buscada.
      *
      * @param chaveDeBusca a palavra a ser buscada nos conteúdos dos resumos.
-     * @return o array com todos os temas que possuem a palavra buscada em seu conteúdo.
+     * @return o array com todos os temas que possuem, em seus conteúdos, a palavra buscada.
      */
     public String[] busca(String chaveDeBusca) {
         String[] temas;
@@ -132,13 +134,8 @@ public class RegistroResumos {
                 iTemas++;
             }
         }
+
         return temas;
-    }
-
-    @Override
-    public String toString() {
-        String s = "";
-
     }
 
 }

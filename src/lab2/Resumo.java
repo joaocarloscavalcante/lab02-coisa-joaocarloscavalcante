@@ -1,3 +1,5 @@
+package lab2;
+
 /**
  * Representação de um resumo de estudos contendo um tema e o seu conteúdo textual.
  * O tema atua como o identificador do resumo e é imutável após a criação.
@@ -47,7 +49,7 @@ public class Resumo {
      * @return true se a String está contida, false se não está contida
      */
     public boolean temChave(String chave) {
-        return this.conteudo.contains(chave);
+        return this.conteudo.toLowerCase().contains(chave.toLowerCase());
     }
 
     /**

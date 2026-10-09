@@ -1,3 +1,5 @@
+package lab2;
+
 /**
  * Representação da quantidade de horas online dedicadas pelo estudante aos afazeres de uma disciplina remota.
  * O estudante precisa atingir a meta de tempo online definida para a disciplina. Caso não exista uma meta definida
@@ -57,7 +59,7 @@ public class RegistroTempoOnline {
 
     /**
      * Retorna a String que representa o registro de tempo online.
-     * A representação segue o formato "NOME DA DISCIPLINA horasUsadas/horasEsperadas".
+     * A representação segue o formato "nomeDisciplina tempoOnline/metaTempoOnline".
      *
      * @return a representação em String do registro de tempo online
      */

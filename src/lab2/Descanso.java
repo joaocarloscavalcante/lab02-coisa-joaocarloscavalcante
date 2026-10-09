@@ -1,3 +1,5 @@
+package lab2;
+
 /**
  * Representação da rotina de descanso de um estudante.
  * Avalia se o aluno está descansado com base nas horas de lazer acumuladas ao longo das semanas.
@@ -10,7 +12,7 @@ public class Descanso {
     /** Horas acumuladas de descanso do estudante. */
     private int horasDescanso;
     /** Número total de semanas acompanhadas. */
-    private int numerosSemanas;
+    private int numeroSemanas;
 
     /**
      * Constrói uma rotina de descanso.
@@ -18,7 +20,7 @@ public class Descanso {
      */
     public Descanso() {
         this.horasDescanso = 0;
-        this.numerosSemanas = 0;
+        this.numeroSemanas = 0;
     }
 
     /**
@@ -33,10 +35,10 @@ public class Descanso {
     /**
      * Define a quantidade de semanas acompanhadas.
      *
-     * @param numerosSemanas o número de semanas
+     * @param numeroSemanas o número de semanas
      */
-    public void defineNumeroSemanas(int numerosSemanas) {
-        this.numerosSemanas = numerosSemanas;
+    public void defineNumeroSemanas(int numeroSemanas) {
+        this.numeroSemanas = numeroSemanas;
     }
 
     /**
@@ -47,7 +49,7 @@ public class Descanso {
      * @return a representação em String da situação do aluno ("descansado" ou "cansado")
      */
     public String getStatusGeral() {
-        if(numerosSemanas > 0 && (horasDescanso / numerosSemanas) >= 26) {
+        if(numeroSemanas > 0 && (horasDescanso / numeroSemanas) >= 26) {
             return "descansado";
         } else {
             return "cansado";

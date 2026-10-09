@@ -1,7 +1,9 @@
+package lab2;
+
 /**
- * Representação de uma Disciplina na qual o estudante esteja matriculado.
+ * Representação de uma disciplina na qual o estudante esteja matriculado.
  * O estudante necessita atingir a nota mínima de 7.0 pontos para que seja aprovado na disciplina.
- * A nota de cada disciplina é definida pela média aritmética entre 4 notas avaliativas
+ * A nota de cada disciplina é definida pela média aritmética entre as notas avaliativas
  * (sem arredondamento), sendo elas substituíveis após uma definição anterior.
  * Cada disciplina possui também um total de horas cumulativas de estudo.
  *
@@ -18,7 +20,7 @@ public class Disciplina {
     /** Array com os pesos de cada nota da disciplina. */
     private double[] pesos;
     //** Quantidade padrão de notas por disciplina. */
-    private static final int QTD_NOTAS = 4;
+    private static final int QTD_NOTAS_USUAL = 4;
 
     /**
      * Constrói uma disciplina a partir do seu nome.
@@ -29,7 +31,7 @@ public class Disciplina {
     public Disciplina(String nomeDisciplina) {
         this.nomeDisciplina = nomeDisciplina;
         this.horasEstudo = 0;
-        this.notas = new double[QTD_NOTAS];
+        this.notas = new double[QTD_NOTAS_USUAL];
     }
 
     public Disciplina(String nomeDisciplina, int qtdNotas) {
@@ -55,9 +57,9 @@ public class Disciplina {
     }
 
     /**
-     * Cadastra ou substitui uma das notas da disciplina (1, 2, 3 ou 4).
+     * Cadastra ou substitui uma das notas da disciplina.
      *
-     * @param nota a identificação da nota (de 1 a 4)
+     * @param nota a identificação da nota
      * @param valorNota o valor numérico da nota recebida
      */
     public void cadastraNota(int nota, double valorNota) {
@@ -72,7 +74,7 @@ public class Disciplina {
      * @return a média (aritmética ou ponderada) das notas da disciplina
      */
     public double media() {
-        int qtdNotas = notas.length;
+        int qtdNotas = this.notas.length;
         if(this.pesos != null) {
             double somaPesos = 0.0;
             double somaPonderada = 0.0;
@@ -100,18 +102,28 @@ public class Disciplina {
     }
 
     /**
-     * Formata as notas de uma disciplina em uma única string
-     * A representação segue o formato "[NOTA1, NOTA2, NOTA3, NOTA4]".
+     * Formata as notas de uma disciplina em uma única string.
+     * A representação segue o formato "[NOTA1, NOTA2, NOTA3, ..., NOTA"N"]".
+     * Método auxiliar para toString().
      *
      * @return a representação em String das notas
      */
     private String notasToString() {
-        return "[" + this.notas[0] + ", " + this.notas[1] + ", " + this.notas[2] + ", " + this.notas[3] + "]";
+        String notasFormatadas = "[";
+        for(int i = 0; i < notas.length; i++) {
+            if(i != notas.length - 1) {
+                notasFormatadas += this.notas[i] + ", ";
+            } else {
+                notasFormatadas += this.notas[i] + "]";
+            }
+        }
+
+        return notasFormatadas;
     }
 
     /**
      * Retorna a String que representa a disciplina.
-     * A representação segue o formato "NOME HORAS MEDIA [NOTA1, NOTA2, NOTA3, NOTA4]".
+     * A representação segue o formato "nomeDisciplina horasEstudo media [NOTA1, NOTA2, NOTA3, NOTA4]".
      *
      * @return a representação em String da disciplina
      */
