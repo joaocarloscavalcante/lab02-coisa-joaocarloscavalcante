@@ -2,7 +2,7 @@ package lab2;
 
 /**
  * Representação de um resumo de estudos contendo um tema e o seu conteúdo textual.
- * O tema atua como o identificador do resumo e é imutável após a criação.
+ * O tema atua como o identificador do resumo.
  *
  * @author João Carlos Cavalcante de Almeida Padilha
  */

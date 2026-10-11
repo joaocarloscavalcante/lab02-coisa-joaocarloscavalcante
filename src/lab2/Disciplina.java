@@ -24,7 +24,7 @@ public class Disciplina {
 
     /**
      * Constrói uma disciplina a partir do seu nome.
-     * Toda disciplina começa com zero horas de estudo e 4 notas valendo 0.0.
+     * A disciplina começa com zero horas de estudo e 4 notas valendo 0.0.
      *
      * @param nomeDisciplina o nome da disciplina
      */
@@ -34,12 +34,28 @@ public class Disciplina {
         this.notas = new double[QTD_NOTAS_USUAL];
     }
 
+    /**
+     * Constrói uma disciplina a partir do seu nome e da sua quantidade de notas.
+     * A disciplina começa com zero horas de estudo e notas valendo 0.0.
+     *
+     * @param nomeDisciplina o nome da disciplina
+     * @param qtdNotas a quantidade de notas definida para a disciplina
+     */
     public Disciplina(String nomeDisciplina, int qtdNotas) {
         this.nomeDisciplina = nomeDisciplina;
         this.horasEstudo = 0;
         this.notas = new double[qtdNotas];
     }
 
+    /**
+     * Constrói uma disciplina a partir do seu nome, da sua quantidade de notas, e dos pesos de cada nota.
+     * A disciplina começa com zero horas de estudo e notas valendo 0.0.
+     * Os pesos passados como parâmetro são usados no cálculo da média ponderada da disciplina.
+     *
+     * @param nomeDisciplina o nome da disciplina
+     * @param qtdNotas a quantidade de notas definida para a disciplina
+     * @param pesos os pesos usados para a média ponderada
+     */
     public Disciplina(String nomeDisciplina, int qtdNotas, double[] pesos) {
         this.nomeDisciplina = nomeDisciplina;
         this.horasEstudo = 0;
